@@ -299,55 +299,7 @@ class AdaBoostBackend(StumpGenerator):
 
 
 
-            
-         
-
-# x = np.array([["Yes",205],["No",180],["Yes",210],["Yes",167],["No",156],["No",125],["Yes",168],["Yes",172]], dtype= object)
-# y = np.array(["Yes",  "Yes", "Yes","Yes","No","No","No","No"])
-
-# sg = AdaBoostBackend()
-# print(sg.find_best_gini(x,y))
-# print(x.shape[1])
-# print(sg.fit(x,y))
-# print(sg.adjust_weights())
-
-import numpy as np
-from sklearn.datasets import load_breast_cancer
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-
-# -----------------------------
-# Load the Breast Cancer dataset
-# -----------------------------
-data = load_breast_cancer()
-X = data.data           # 569 samples, 30 features (all numerical)
-y = data.target         # 0 = malignant, 1 = benign
-
-# Convert 0/1 to "negative"/"positive" to match your class
-y_labels = np.array(["negative" if label == 0 else "positive" for label in y])
-
-# Split into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y_labels, test_size=0.2, random_state=42)
-
-# -----------------------------
-# AdaBoost Implementation
-# -----------------------------
-# Assuming your AdaBoost class is called AdaBoostBackend and already defined
-ada = AdaBoostBackend()
-ada.fit(X_train, y_train, n_estimator=10)  # Train with 10 stumps
-
-# -----------------------------
-# Make Predictions
-# -----------------------------
-predictions = ada.predict(X_test)
-
-# -----------------------------
-# Calculate Accuracy
-# -----------------------------
-accuracy = np.sum(predictions == y_test) / len(y_test)
-print("Predictions:", predictions)
-print("Ground truth:", y_test)
-print(f"Accuracy: {accuracy * 100:.2f}%")
+           
 
 
 
