@@ -1,9 +1,5 @@
 import numpy as np
 
-import tensorflow as tf
-print(tf.config.list_physical_devices('GPU'))  
-
-
 
 def find_medians(a):
     arr = np.unique(np.sort(a))
@@ -157,11 +153,6 @@ def prob_array(arr):
 
         
 
-    
-    
-
-
-
 class AdaBoostBackend(StumpGenerator):
     def __init__(self):
         super().__init__()
@@ -293,20 +284,3 @@ class AdaBoostBackend(StumpGenerator):
 
 
         return predictions
-
-
-    
-
-
-
-           
-
-
-
-
-
-
-
-
-
-
